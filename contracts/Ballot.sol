@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity >=0.7.0 <0.9.0;
 /// @title Voting with delegation.
+
 contract Ballot {
-    // This declares a new complex type which will
-    // be used for variables later.
-    // It will represent a single voter.
+    // This declares a new complex type which will 
+    // represent a single voter.
     struct Voter {
         uint weight; // weight is accumulated by delegation
         bool voted;  // if true, that person already voted
@@ -29,7 +29,7 @@ contract Ballot {
 
     /// Create a new ballot to choose one of `proposalNames`.
     constructor(bytes32[] memory proposalNames) {
-        chairperson = msg.sender;
+        chairperson = msg.sender;   
         voters[chairperson].weight = 1;
 
         // For each of the provided proposal names,
@@ -48,6 +48,7 @@ contract Ballot {
 
     // Give `voter` the right to vote on this ballot.
     // May only be called by `chairperson`.
+
     function giveRightToVote(address voter) external {
         // If the first argument of `require` evaluates
         // to `false`, execution terminates and all
@@ -63,6 +64,7 @@ contract Ballot {
             msg.sender == chairperson,
             "Only chairperson can give right to vote."
         );
+        
         require(
             !voters[voter].voted,
             "The voter already voted."

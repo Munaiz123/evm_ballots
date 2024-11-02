@@ -17,3 +17,11 @@ export {
     publicClient,
     deployer
 }
+
+/**
+ * This file does a few things on the Sepolia Base (Ethereum L2) blockchain :
+ * 
+ *  1. Pulls in alchemy API key & wallet private key from .env file
+ *  2. Creates wallet client that will sign txns & deploy smart contracts
+ *  3. Creates public client to interact with deployed contracts
+ */

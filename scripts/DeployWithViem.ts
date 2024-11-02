@@ -1,7 +1,14 @@
 import {formatEther, toHex } from "viem";
 import {publicClient, deployer} from "./index";
-
 import { abi as ballotABI, bytecode as ballotBytecode } from "../artifacts/contracts/Ballot.sol/Ballot.json";
+
+
+/* In this file:
+ - Pulls in ABI and Byte code from compiled Ballot.sol ('npx hardhat compile')
+ - Pulls in Argments from command line (npx ts-node --files ./scripts/DeployWithViem.ts arg1 arg2 arg3)
+ - Ballot.sol is deployed on Base Sepolia test net
+ - Logs out the contract address
+*/
 
 async function main() {
   const proposals = process.argv.slice(2);

@@ -49,10 +49,11 @@ async function main() {
                 args: [BigInt(proposalIndex)],
             });
 
-            let receipt = await publicClient.waitForTransactionReceipt({ hash });
+            let receipt = await publicClient.waitForTransactionReceipt({ hash:hash });
             console.log("Transaction confirmed --- ", receipt);
             process.exit(0)
-        }
+
+        } else process.exit(0)
     })
     
 }

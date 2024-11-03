@@ -16,8 +16,8 @@ const config: HardhatUserConfig = {
   networks: {
     sepolia: {
       // url: `https://sepolia.infura.io/v3/${process.env.INFURA_API_KEY}`,
-      url:`https://base-sepolia.g.alchemy.com/v2/${providerApiKey}`,
-      // url: `https://eth-sepolia.g.alchemy.com/v2/${providerApiKey}`,
+      // url:`https://base-sepolia.g.alchemy.com/v2/${providerApiKey}`,
+      url: `https://eth-sepolia.g.alchemy.com/v2/${providerApiKey}`,
       // url: "https://ethereum-sepolia-rpc.publicnode.com",
       accounts: [deployerPrivateKey]
     }

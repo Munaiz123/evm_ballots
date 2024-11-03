@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity >=0.7.0 <0.9.0;
 /// @title Voting with delegation.
+
 contract Ballot {
     // This declares a new complex type which will
     // be used for variables later.
@@ -52,6 +53,7 @@ contract Ballot {
 
     // Give `voter` the right to vote on this ballot.
     // May only be called by `chairperson`.
+    
     function giveRightToVote(address voter) external {
         // If the first argument of `require` evaluates
         // to `false`, execution terminates and all
@@ -65,7 +67,7 @@ contract Ballot {
         // explanation about what went wrong.
         require( msg.sender == chairperson, "Only chairperson can give right to vote.");
         require( !voters[voter].voted, "The voter already voted.");
-        
+
         require(voters[voter].weight == 0);
         voters[voter].weight = 1;
     }

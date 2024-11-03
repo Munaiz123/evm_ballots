@@ -11,6 +11,7 @@ import { abi as ballotABI, bytecode as ballotBytecode } from "../artifacts/contr
 */
 
 async function main() {
+  console.log(process.argv)
   const proposals = process.argv.slice(2);
   console.log("ARGS === ",proposals)
   

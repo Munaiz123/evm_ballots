@@ -27,15 +27,15 @@ async function main() {
     }) as bigint;
 
     for (let index = 0; index < proposalsLength; index++) {
-        const candidates = (await publicClient.readContract({
+        const proposals = (await publicClient.readContract({
           address: deployedContractAddress as Address,
           abi:ballotABI,
           functionName: "proposals",
           args: [BigInt(index)],
         })) as any[];
 
-        const name = hexToString(candidates[0], { size: 32 });
-        console.log({ index, name, candidates });
+        const name = hexToString(proposals[0], { size: 32 });
+        console.log({ index, name, proposals });
     }
 
 }

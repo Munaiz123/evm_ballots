@@ -51,8 +51,10 @@ async function main() {
 
             let receipt = await publicClient.waitForTransactionReceipt({ hash });
             console.log("Transaction confirmed --- ", receipt);
+            process.exit(0)
         }
     })
+    
 }
 
 main().catch((error) => {

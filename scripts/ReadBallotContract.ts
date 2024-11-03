@@ -4,7 +4,8 @@ import { abi as ballotABI} from "../artifacts/contracts/Ballot.sol/Ballot.json";
 import {Address, hexToString} from "viem"
 
 /* In this file:
- - Pulls in Argments from command line (npx ts-node --files ./scripts/ReadBallotContract.ts 0x...) --> first arg needs to be contract address
+ - Pulls in Argments from command line (npx ts-node --files ./scripts/ReadBallotContract.ts 0x...) 
+    --> first arg needs to be contract address
  - Pulls in ABI and Byte code from compiled Ballot.sol so we can interact with deployed contract
  - Logs out the 'Proposal[] public proposals' array (new function added to get length)
  - Logs out the names of the proposals one by one

@@ -9,6 +9,8 @@ const args = process.argv;
 /** command to run with arguments ⬇️ */
 // npx ts-node --files ./scripts/DeployWithViem.ts "arg1" "arg2" "arg3"
 
+// viem interacts with the blockchain via - PublicClient, WalletClient, TestClient
+
 
 async function main() {
   console.log('ARGS :: ', args)
@@ -17,6 +19,7 @@ async function main() {
   /** The following 2 lines of code runs without having a wallet.
    * You can READ from the blockchain without "signing" a txn
    */
+
   let publicClient = await viem.getPublicClient()
   let lastBlock = await publicClient.getBlockNumber()
   console.log("Last block number:", lastBlock);
@@ -26,9 +29,10 @@ async function main() {
   let balance = await publicClient.getBalance({address:deployer.account.address})
   console.log("Deployer balance == ",formatEther(balance))
 
-  // RPC-JSON format to deploy contracts
+  // deploying contract + confirming contract deployment
   let ballotContract = await viem.deployContract("Ballot",[PROPOSALS.map(candidate => toHex(candidate, {size:32}))])
   console.log("Ballot contract deployed @ ", ballotContract.address)
+
   balance = await publicClient.getBalance({address:deployer.account.address})
   console.log("Deployer balance after deploying contract == ",formatEther(balance))
   

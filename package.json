@@ -9,11 +9,12 @@
   "author": "Munaiz",
   "license": "ISC",
   "dependencies": {
-    "@nomicfoundation/hardhat-toolbox-viem": "^3.0.0",
     "dotenv": "^16.4.5",
     "hardhat": "^2.22.15"
   },
   "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox-viem": "^3.0.0",
+    "@nomicfoundation/hardhat-ignition-ethers": "^0.15.7",
     "mocha": "^10.8.2"
   }
 }
